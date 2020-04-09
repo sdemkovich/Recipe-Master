@@ -1,6 +1,11 @@
 # Project1
 
 ## Latest Commit  
+-Error handling to display "N/A" if nutrient is not found  
+-Added kcal units to Calories  
+-Added Fiber and Cholesterol  
+
+## Previous commits  
 -Created temporary html tags that will display nutrient info  
 -Created temporary html buttons that hold recipe ingredients  
 -Created event handler on recipe buttons  

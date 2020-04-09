@@ -8,7 +8,7 @@ $(document).ready(function(){
 
     // The button title will be the query food
     var ingredientQuery = $(this).text();
-  
+
     // Settings for AJAX call
     var fdc_api_key = "RlTgUNeWpu2FIFPDd0AmRrHssiC7e96O5TKQSGEc";
     var dataType = "Branded"
@@ -32,19 +32,32 @@ $(document).ready(function(){
       var nutrientsArray = [
         {"nutrientName": "Energy",
         "nutrientHTML": "#calories-tag",
-        "nutrientDisplay": "Calories: "},
+        "nutrientDisplay": "Calories: ",
+        "nutrientExists": "false"},
         {"nutrientName": "Protein",
         "nutrientHTML": "#protein-tag",
-        "nutrientDisplay": "Protein: "},
+        "nutrientDisplay": "Protein: ",
+        "nutrientExists": "false"},
         {"nutrientName": "Carbohydrate, by difference",
         "nutrientHTML": "#carbs-tag",
-        "nutrientDisplay": "Carbs: "},
+        "nutrientDisplay": "Carbs: ",
+        "nutrientExists": "false"},
         {"nutrientName": "Sugars, total including NLEA",
         "nutrientHTML": "#sugars-tag",
-        "nutrientDisplay": "Sugar: "},
+        "nutrientDisplay": "Sugar: ",
+        "nutrientExists": "false"},
         {"nutrientName": "Total lipid (fat)",
         "nutrientHTML": "#fat-tag",
-        "nutrientDisplay": "Fat: "},
+        "nutrientDisplay": "Fat: ",
+        "nutrientExists": "false"},
+        {"nutrientName": "Fiber, total dietary",
+        "nutrientHTML": "#fiber-tag",
+        "nutrientDisplay": "Fiber: ",
+        "nutrientExists": "false"},
+        {"nutrientName": "Cholesterol",
+        "nutrientHTML": "#cholesterol-tag",
+        "nutrientDisplay": "Cholesterol: ",
+        "nutrientExists": "false"}
       ];
 
 
@@ -59,17 +72,24 @@ $(document).ready(function(){
           var currentNutrientName = nutrientsArray[j].nutrientName;
           var currentNutrientDisplay = nutrientsArray[j].nutrientDisplay;
           var currentNutrientHTML = nutrientsArray[j].nutrientHTML;
-
+  
           // Update the corresponding HTML with the current nutrient info
           if (response.foods[0].foodNutrients[i].nutrientName === currentNutrientName) {
             nutrientValue = response.foods[0].foodNutrients[i].value;
+            nutrientsArray[j].nutrientExists = "true";
 
-            // Add grams units if the nutrient is not calories
+            // Add units if the nutrient is not calories
             if (currentNutrientName === "Energy") {
-              $(currentNutrientHTML).text(currentNutrientDisplay + nutrientValue);
+              $(currentNutrientHTML).text(currentNutrientDisplay + nutrientValue + " kcal");
+            } else if (currentNutrientName === "Cholesterol") {
+              $(currentNutrientHTML).text(currentNutrientDisplay + nutrientValue + " mg");
             } else {
               $(currentNutrientHTML).text(currentNutrientDisplay + nutrientValue + " g");
             }
+
+            // Display N/A if nutrient is not found in API response
+          } else if (nutrientsArray[j].nutrientExists === "false") {
+            $(currentNutrientHTML).text(currentNutrientDisplay + "N/A");
           }
         }
       }

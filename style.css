@@ -2,3 +2,12 @@
     width: 125px;
     font-weight: bold;
 }
+
+.top-col {
+    text-align: center;
+    display: inline-block;
+}
+.bottom-col {
+    text-align: center;
+    display: inline-block;
+}

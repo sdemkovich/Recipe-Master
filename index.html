@@ -1,47 +1,66 @@
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Hello Bulma!</title>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css"
-    />
-    <script
-      defer
-      src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"
-    ></script>
 
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <section class="section">
-      <div class="container">
-        <h1 class="title">
-          Hello World
-        </h1>
-        <p class="subtitle">My first website with <strong>Bulma</strong>!</p>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hello Bulma!</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css" />
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="columns top-col">
+      <div class="column">
+        <h2 class="title is-2">Title/Directions</h2>
       </div>
-    </section>
+    </div>
+    <div class="columns">
+      <div class="column first-col">
+        <h3 class="title is-3">Pantry</h3>
+        <button id="add-btn">Add item</button>
+        <button id="search-btn">Search</button>
+      </div>
+      <div class="column second-col">
+        <h3 class="title is-3">Recipe's</h3>
+      </div>
+      <div class="column is-two-fifths third-col">
+        <h3 class="title is-3">Recipe preview</h3>
+      </div>
+      <div class="column fourth-col">
+        <h3 class="title is-3">Ingredients</h3>
+      </div>
+    </div>
+    <div class="columns">
+      <div class="column bottom-col">
+        <h2 class="title is-2">Nutrition facts</h2>
+      </div>
+    </div>
+  </div>
+  <section>
 
-      <button class="button is-light">Chicken</button>
-      <button class="button is-light">Corn</button>
-      <button class="button is-light">Spinach</button>
-      <button class="button is-light">Butter</button>
-      <button class="button is-light">Milk</button>
-      <button class="button is-light">Bagel</button>
+    <button class="button is-light">Chicken</button>
+    <button class="button is-light">Corn</button>
+    <button class="button is-light">Spinach</button>
+    <button class="button is-light">Butter</button>
+    <button class="button is-light">Milk</button>
+    <button class="button is-light">Bagel</button>
 
 
-      <p class="subtitle" id="ingredient-name"></p>
-      <p class="tag is-rounded is-primary" id="calories-tag">Calories</p>
-      <p class="tag is-rounded is-warning" id="fat-tag">Fat (g)</p>
-      <p class="tag is-rounded is-info" id="protein-tag">Protein (g)</p>
-      <p class="tag is-rounded is-danger" id="sugars-tag">Sugar (g)</p>
-      <p class="tag is-rounded is-success" id="carbs-tag">Carbs (g)</p>
+    <p class="subtitle" id="ingredient-name"></p>
+    <p class="tag is-rounded is-primary" id="calories-tag">Calories</p>
+    <p class="tag is-rounded is-warning" id="fat-tag">Fat (g)</p>
+    <p class="tag is-rounded is-info" id="protein-tag">Protein (g)</p>
+    <p class="tag is-rounded is-danger" id="sugars-tag">Sugar (g)</p>
+    <p class="tag is-rounded is-primary" id="carbs-tag">Carbs (g)</p>
+    <p class="tag is-rounded is-warning" id="fiber-tag">Fiber (g)</p>
+    <p class="tag is-rounded is-info" id="cholesterol-tag">Cholesterol (mg)</p>
 
+  </section>
 
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="script.js"></script>
-  </body>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="script.js"></script>
+</body>
+
 </html>
-
