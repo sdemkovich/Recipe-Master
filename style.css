@@ -1,10 +1,11 @@
 body {
-    background-image: url(docs/purty_wood.png);
+    background: url(./docs/pantry.png) center center;
 }
 
-.tag {
+.nutrient-tag {
     width: 125px;
     font-weight: bold;
+    margin: 10px 5px;
 }
 
 .navbar {
@@ -21,6 +22,12 @@ body {
     background-size: cover;
 }
 
+.banner-bottom {
+    background-image: url(./docs/lower-banner.png);
+    height: 200px;
+    background-position: center center;
+}
+
 .fa-2x {
     margin-right: 15px;
 }
@@ -31,18 +38,12 @@ body {
     padding: 100px;
 }
 
-.header-div,
-#pantry-search-title {
+.header-div {
     font-family: 'Lato', sans-serif;
     background-color: rgba(69, 75, 71, 0.75);
-    width: 35%;
+    width: 41%;
     padding: 30px;
     border-radius: 5%;
-}
-
-#pantry-search-title {
-    position: relative;
-    margin: 0;
 }
 
 #pantry-input {
@@ -54,26 +55,66 @@ body {
     font-weight: 300px;
 }
 
-#pantry-search-div {
-    color: white;
-    padding: 100px;
+#pantry-section {
+    height: 100%;
 }
 
-#pantry-section {
+/* Pantry section div  */
+#outer-pantry-container {
     position: relative;
     z-index: 1;
+    height: 100%;
 }
 
-#pantry-section .bg {
+/* Row that holds both columns */
+#pantry-column-row {
+    height: 100%;
+}
+
+/* Pantry search container */
+#new-pantry-search-container {
+    height: 33%;
+    width: 70%;
+    padding-top: 2%;
+    background-color: whitesmoke;
+    font-family: 'Lato', sans-serif;
+    border-radius: 5%;
+    color: black;
+}
+
+#pantry-ingredients-container {
+    height: 60%;
+    width: 90%;
+    text-align: center;
+}
+
+#prepend-ingredients-here {
+    border-radius: 5%;
+    height: 100%;
+}
+
+.new-ingredient-button {
+    width: 25%;
+    margin: 1%;
+}
+
+#prepend-ingredients-here .bg {
     position: absolute;
     z-index: -1;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-    background: url(./docs/pantry.png) center center;
-    opacity: .4;
+    border: solid whitesmoke 10px;
+    border-radius: 5%;
+    background: url(./docs/corkboard.png) center center;
+    opacity: 1;
     width: 100%;
     height: 100%;
 }
 
+.clear-and-search {
+    margin: 2%;
+    width: 35%;
+    border: solid whitesmoke 3px;
+}

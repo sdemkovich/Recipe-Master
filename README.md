@@ -1,9 +1,12 @@
 # Project1
 
 ## Latest Commit  
--Modify HTML/CSS for UI  
+-Added lower banner  
+-Modified Pantry Search, Pantry List, and background  
+
 
 ## Previous commits  
+-Modify HTML/CSS for UI  
 -Error handling to display "N/A" if nutrient is not found  
 -Added kcal units to Calories  
 -Added Fiber and Cholesterol  

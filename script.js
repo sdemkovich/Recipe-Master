@@ -24,11 +24,11 @@ $(document).ready(function(){
 
       // Update HTML to display what was searched
       var firstFoodReturned = response.foods[0].description;
-      $("#ingredient-name").text("API called for: " + firstFoodReturned);
+      $("#ingredient-name").text("Nutrition info for: " + firstFoodReturned);
 
       var nutrientValue = "";
 
-      // Information for 5 nutrients that will be displayed
+      // Information for nutrients that will be displayed
       var nutrientsArray = [
         {"nutrientName": "Energy",
         "nutrientHTML": "#calories-tag",
