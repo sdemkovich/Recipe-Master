@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Hello Bulma!</title>
+  <title>Recipe Master</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css" />
   <link rel="stylesheet" href="style.css" />
   <script src="https://kit.fontawesome.com/f8378d18e1.js" crossorigin="anonymous"></script>
@@ -14,34 +14,36 @@
   <!-- Navbar -->
   <nav class="navbar is-success" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
-      <a class="navbar-item" href="https://bulma.io">
-        <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
-      </a>
+      <i class="navbar-item" href="https://bulma.io">
+        <img src="docs/navbar-icon.png">
+      </i>
     </div>
 
-    <div class="navbar-start">
-      <a class="navbar-item">
-        Pantry Search
-      </a>
+    <div class="navbar-menu is-active">
+      <div class="navbar-start">
+        <a class="navbar-item" href="#pantry-search-section">
+          Pantry Search
+        </a>
 
-      <a class="navbar-item">
-        Recipe's
-      </a>
+        <a class="navbar-item" href="#recipe-cards-section">
+          Recipe's
+        </a>
 
-      <a class="navbar-item">
-        Ingredients
-      </a>
+        <a class="navbar-item" href="#ingredients-section">
+          Ingredients
+        </a>
 
-      <a class="navbar-item">
-        Nutrition
-      </a>
-    </div>
+        <a class="navbar-item" href="#nutrition-section">
+          Nutrition
+        </a>
+      </div>
 
-    <div class="navbar-end">
-      <div class="navbar-item">
-        <i class="fab fa-2x fa-html5"></i>
-        <i class="fab fa-2x fa-css3-alt"></i>
-        <i class="fab fa-2x fa-js"></i>
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <i class="fab fa-2x fa-html5"></i>
+          <i class="fab fa-2x fa-css3-alt"></i>
+          <i class="fab fa-2x fa-js"></i>
+        </div>
       </div>
     </div>
   </nav>
@@ -49,20 +51,20 @@
   <!-- Banner -->
   <div class="columns banner-image is-vcentered">
     <div class="column has-text-centered">
-      <h1 class="title is-size-1 has-text-white">Pantry Recipes</h1>
+      <h1 class="title is-size-1 has-text-white">Recipe Master</h1>
       <h2 class="title is-size-5 has-text-white">Make the most of your kitchen pantry!</h2>
     </div>
   </div>
 
   <section class="section has-text-centered">
-    <div class="container has-background-white main-section">
+    <div class="container has-background-white main-section" id="pantry-search-section">
       <h1 class="titles is-size-3 is-12">1. Pantry Search</h1>
       <h2 class="titles is-size-5 is-12">Enter ingredients you have on hand.</h2>
     </div>
   </section>
 
   <section class="section has-text-centered">
-    <div class="container has-background-white main-section">
+    <div class="container has-background-white main-section" id="recipe-cards-section">
       <h1 class="titles is-size-3 is-12">2. Recipe Cards</h1>
       <h2 class="titles is-size-5 is-12">Pick a recipe!</h2>
     </div>
@@ -76,7 +78,7 @@
   </section> -->
 
   <section class="section has-text-centered">
-    <div class="container has-background-white main-section">
+    <div class="container has-background-white main-section" id="ingredients-section">
       <h1 class="titles is-size-3 is-12">3. Ingredients</h1>
       <h2 class="titles is-size-5 is-12">Add ingredients to your shopping list</h2>
       <button class="button is-light">Chicken</button>
@@ -90,7 +92,7 @@
 
 
 
-  <div class="columns has-text-centered has-background-white nutrition">
+  <div class="columns has-text-centered has-background-white nutrition" id="nutrition-section">
     <div class="column is-12">
       <p class="subtitle" id="ingredient-name">Click an ingredient to get its nutrition info!</p>
 
@@ -103,29 +105,6 @@
       <p class="tag is-rounded is-info" id="cholesterol-tag">Cholesterol (mg)</p>
     </div>
   </div>
-
-
-  </div>
-  <!-- <section>
-
-    <button class="button is-light">Chicken</button>
-    <button class="button is-light">Corn</button>
-    <button class="button is-light">Spinach</button>
-    <button class="button is-light">Butter</button>
-    <button class="button is-light">Milk</button>
-    <button class="button is-light">Bagel</button>
-
-
-    <p class="subtitle" id="ingredient-name"></p>
-    <p class="tag is-rounded is-primary" id="calories-tag">Calories</p>
-    <p class="tag is-rounded is-warning" id="fat-tag">Fat (g)</p>
-    <p class="tag is-rounded is-info" id="protein-tag">Protein (g)</p>
-    <p class="tag is-rounded is-danger" id="sugars-tag">Sugar (g)</p>
-    <p class="tag is-rounded is-primary" id="carbs-tag">Carbs (g)</p>
-    <p class="tag is-rounded is-warning" id="fiber-tag">Fiber (g)</p>
-    <p class="tag is-rounded is-info" id="cholesterol-tag">Cholesterol (mg)</p>
-
-  </section> -->
 
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script src="script.js"></script>
