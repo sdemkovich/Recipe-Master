@@ -7,20 +7,41 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css"
     />
+    <link rel="stylesheet" href="style.css" />
     <script
       defer
       src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"
     ></script>
   </head>
   <body>
-    <section class="section">
-      <div class="container">
-        <h1 class="title">
-          Hello World
-        </h1>
-        <p class="subtitle">My first website with <strong>Bulma</strong>!</p>
+    <div class="container">
+      <div class="columns top-col">
+        <div class="column">
+          <h2 class="title is-2">Title/Directions</h2>
+        </div>
       </div>
-    </section>
+      <div class="columns">
+        <div class="column first-col">
+          <h3 class="title is-3">Pantry</h3>
+          <button id="add-btn">Add item</button>
+          <button id="search-btn">Search</button>
+        </div>
+        <div class="column second-col">
+          <h3 class="title is-3">Recipe's</h3>
+        </div>
+        <div class="column is-two-fifths third-col">
+          <h3 class="title is-3">Recipe preview</h3>
+        </div>
+        <div class="column fourth-col">
+          <h3 class="title is-3">Ingredients</h3>
+        </div>
+      </div>
+      <div class="columns">
+        <div class="column bottom-col">
+          <h2 class="title is-2">Nutrition facts</h2>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
   </body>
 </html>
-
