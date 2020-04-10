@@ -100,30 +100,30 @@ $(document).ready(function(){
   
   });
   
-  // // Recipe puppy
-  // var urlIngredients = "onions, garlic, chicken legs";
-  // var pageNumber = "&p=1";
+  // Recipe puppy
+  var urlIngredients = "onions, garlic, chicken legs";
+  var pageNumber = "&p=1";
   
-  // var settings = {
-  // 	"url": "https://recipe-puppy.p.rapidapi.com/?i=" + urlIngredients + pageNumber,
-  // 	"method": "GET",
-  // 	"headers": {
-  // 		"x-rapidapi-host": "recipe-puppy.p.rapidapi.com",
-  // 		"x-rapidapi-key": "d8b37011d5mshfdc852418e9e300p167785jsn0d94302f0b12"
-  // 	}
-  // }
+  var settings = {
+  	"url": "https://recipe-puppy.p.rapidapi.com/?i=" + urlIngredients + pageNumber,
+  	"method": "GET",
+  	"headers": {
+  		"x-rapidapi-host": "recipe-puppy.p.rapidapi.com",
+  		"x-rapidapi-key": "d8b37011d5mshfdc852418e9e300p167785jsn0d94302f0b12"
+  	}
+  }
   
-  // // AJAX Recipe Puppy
-  // $.ajax(settings).then(function (response) {
-  //   var recipePuppyResponse = JSON.parse(response);
-  //   console.log(recipePuppyResponse);
+  // AJAX Recipe Puppy
+  $.ajax(settings).then(function (response) {
+    var recipePuppyResponse = JSON.parse(response);
+    console.log(recipePuppyResponse);
   
-  //   // List all ingredients 
-  //   for (var i = 0; i < recipePuppyResponse.results.length; i++) {
+    // List all ingredients 
+    for (var i = 0; i < recipePuppyResponse.results.length; i++) {
   
-  //     // Get title and remove carriage returns
-  //     var recipeTitle = recipePuppyResponse.results[i].title.replace(/[\n\r]/g, '');
-  //     console.log(recipeTitle);
-  //   }
+      // Get title and remove carriage returns
+      var recipeTitle = recipePuppyResponse.results[i].title.replace(/[\n\r]/g, '');
+      console.log(recipeTitle);
+    }
   
-  // });
+  });
