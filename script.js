@@ -1,10 +1,10 @@
-$(document).ready(function () {
+$(document).ready(function(){ 
 
   // U.S. DEPARTMENT OF AGRICULTURE 
   // FoodData Central API 
 
   // When a food ingredient button is clicked
-  $(".button").on("click", function () {
+  $(".button").on("click", function() {
 
     // The button title will be the query food
     var ingredientQuery = $(this).text();
@@ -24,61 +24,47 @@ $(document).ready(function () {
 
       // Update HTML to display what was searched
       var firstFoodReturned = response.foods[0].description;
-      $("#ingredient-name").text("API called for: " + firstFoodReturned);
+      $("#ingredient-name").text("Nutrition info for: " + firstFoodReturned);
 
       var nutrientValue = "";
 
-      // Information for 5 nutrients that will be displayed
+      // Information for nutrients that will be displayed
       var nutrientsArray = [
-        {
-          "nutrientName": "Energy",
-          "nutrientHTML": "#calories-tag",
-          "nutrientDisplay": "Calories: ",
-          "nutrientExists": "false"
-        },
-        {
-          "nutrientName": "Protein",
-          "nutrientHTML": "#protein-tag",
-          "nutrientDisplay": "Protein: ",
-          "nutrientExists": "false"
-        },
-        {
-          "nutrientName": "Carbohydrate, by difference",
-          "nutrientHTML": "#carbs-tag",
-          "nutrientDisplay": "Carbs: ",
-          "nutrientExists": "false"
-        },
-        {
-          "nutrientName": "Sugars, total including NLEA",
-          "nutrientHTML": "#sugars-tag",
-          "nutrientDisplay": "Sugar: ",
-          "nutrientExists": "false"
-        },
-        {
-          "nutrientName": "Total lipid (fat)",
-          "nutrientHTML": "#fat-tag",
-          "nutrientDisplay": "Fat: ",
-          "nutrientExists": "false"
-        },
-        {
-          "nutrientName": "Fiber, total dietary",
-          "nutrientHTML": "#fiber-tag",
-          "nutrientDisplay": "Fiber: ",
-          "nutrientExists": "false"
-        },
-        {
-          "nutrientName": "Cholesterol",
-          "nutrientHTML": "#cholesterol-tag",
-          "nutrientDisplay": "Cholesterol: ",
-          "nutrientExists": "false"
-        }
+        {"nutrientName": "Energy",
+        "nutrientHTML": "#calories-tag",
+        "nutrientDisplay": "Calories: ",
+        "nutrientExists": "false"},
+        {"nutrientName": "Protein",
+        "nutrientHTML": "#protein-tag",
+        "nutrientDisplay": "Protein: ",
+        "nutrientExists": "false"},
+        {"nutrientName": "Carbohydrate, by difference",
+        "nutrientHTML": "#carbs-tag",
+        "nutrientDisplay": "Carbs: ",
+        "nutrientExists": "false"},
+        {"nutrientName": "Sugars, total including NLEA",
+        "nutrientHTML": "#sugars-tag",
+        "nutrientDisplay": "Sugar: ",
+        "nutrientExists": "false"},
+        {"nutrientName": "Total lipid (fat)",
+        "nutrientHTML": "#fat-tag",
+        "nutrientDisplay": "Fat: ",
+        "nutrientExists": "false"},
+        {"nutrientName": "Fiber, total dietary",
+        "nutrientHTML": "#fiber-tag",
+        "nutrientDisplay": "Fiber: ",
+        "nutrientExists": "false"},
+        {"nutrientName": "Cholesterol",
+        "nutrientHTML": "#cholesterol-tag",
+        "nutrientDisplay": "Cholesterol: ",
+        "nutrientExists": "false"}
       ];
 
 
       // Loop through food nutrients array for the first food item from the response
       for (var i = 0; i < response.foods[0].foodNutrients.length; i++) {
         updateNutrient();
-      }
+      } 
 
       // Updates the HTML tags for each nutrient
       function updateNutrient() {
@@ -86,7 +72,7 @@ $(document).ready(function () {
           var currentNutrientName = nutrientsArray[j].nutrientName;
           var currentNutrientDisplay = nutrientsArray[j].nutrientDisplay;
           var currentNutrientHTML = nutrientsArray[j].nutrientHTML;
-
+  
           // Update the corresponding HTML with the current nutrient info
           if (response.foods[0].foodNutrients[i].nutrientName === currentNutrientName) {
             nutrientValue = response.foods[0].foodNutrients[i].value;
