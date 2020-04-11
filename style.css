@@ -1,6 +1,6 @@
-body {
+/* body {
   background-image: url(docs/purty_wood.png);
-}
+} */
 .tag {
   width: 125px;
   font-weight: bold;
@@ -14,7 +14,7 @@ body {
   height: 60%;
   width: 100%;
   background-position: center;
-  background-image: url(./docs/banner.png);
+  /* background-image: url(./docs/banner.png); */
   background-size: cover;
 }
 .main-content .column {
@@ -27,6 +27,11 @@ body {
   border: solid green 1px;
 }
 
+.input {
+  text-align: center;
+  color: black;
+  font-size: medium;
+}
 
 
 
