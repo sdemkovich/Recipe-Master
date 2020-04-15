@@ -1,10 +1,10 @@
-$(document).ready(function(){ 
+$(document).ready(function () {
 
   // U.S. DEPARTMENT OF AGRICULTURE 
   // FoodData Central API 
 
   // When a food ingredient button is clicked
-  $(".button").on("click", function() {
+  $(".button").on("click", function () {
 
     // The button title will be the query food
     var ingredientQuery = $(this).text();
@@ -30,41 +30,55 @@ $(document).ready(function(){
 
       // Information for nutrients that will be displayed
       var nutrientsArray = [
-        {"nutrientName": "Energy",
-        "nutrientHTML": "#calories-tag",
-        "nutrientDisplay": "Calories: ",
-        "nutrientExists": "false"},
-        {"nutrientName": "Protein",
-        "nutrientHTML": "#protein-tag",
-        "nutrientDisplay": "Protein: ",
-        "nutrientExists": "false"},
-        {"nutrientName": "Carbohydrate, by difference",
-        "nutrientHTML": "#carbs-tag",
-        "nutrientDisplay": "Carbs: ",
-        "nutrientExists": "false"},
-        {"nutrientName": "Sugars, total including NLEA",
-        "nutrientHTML": "#sugars-tag",
-        "nutrientDisplay": "Sugar: ",
-        "nutrientExists": "false"},
-        {"nutrientName": "Total lipid (fat)",
-        "nutrientHTML": "#fat-tag",
-        "nutrientDisplay": "Fat: ",
-        "nutrientExists": "false"},
-        {"nutrientName": "Fiber, total dietary",
-        "nutrientHTML": "#fiber-tag",
-        "nutrientDisplay": "Fiber: ",
-        "nutrientExists": "false"},
-        {"nutrientName": "Cholesterol",
-        "nutrientHTML": "#cholesterol-tag",
-        "nutrientDisplay": "Cholesterol: ",
-        "nutrientExists": "false"}
+        {
+          "nutrientName": "Energy",
+          "nutrientHTML": "#calories-tag",
+          "nutrientDisplay": "Calories: ",
+          "nutrientExists": "false"
+        },
+        {
+          "nutrientName": "Protein",
+          "nutrientHTML": "#protein-tag",
+          "nutrientDisplay": "Protein: ",
+          "nutrientExists": "false"
+        },
+        {
+          "nutrientName": "Carbohydrate, by difference",
+          "nutrientHTML": "#carbs-tag",
+          "nutrientDisplay": "Carbs: ",
+          "nutrientExists": "false"
+        },
+        {
+          "nutrientName": "Sugars, total including NLEA",
+          "nutrientHTML": "#sugars-tag",
+          "nutrientDisplay": "Sugar: ",
+          "nutrientExists": "false"
+        },
+        {
+          "nutrientName": "Total lipid (fat)",
+          "nutrientHTML": "#fat-tag",
+          "nutrientDisplay": "Fat: ",
+          "nutrientExists": "false"
+        },
+        {
+          "nutrientName": "Fiber, total dietary",
+          "nutrientHTML": "#fiber-tag",
+          "nutrientDisplay": "Fiber: ",
+          "nutrientExists": "false"
+        },
+        {
+          "nutrientName": "Cholesterol",
+          "nutrientHTML": "#cholesterol-tag",
+          "nutrientDisplay": "Cholesterol: ",
+          "nutrientExists": "false"
+        }
       ];
 
 
       // Loop through food nutrients array for the first food item from the response
       for (var i = 0; i < response.foods[0].foodNutrients.length; i++) {
         updateNutrient();
-      } 
+      }
 
       // Updates the HTML tags for each nutrient
       function updateNutrient() {
@@ -72,7 +86,7 @@ $(document).ready(function(){
           var currentNutrientName = nutrientsArray[j].nutrientName;
           var currentNutrientDisplay = nutrientsArray[j].nutrientDisplay;
           var currentNutrientHTML = nutrientsArray[j].nutrientHTML;
-  
+
           // Update the corresponding HTML with the current nutrient info
           if (response.foods[0].foodNutrients[i].nutrientName === currentNutrientName) {
             nutrientValue = response.foods[0].foodNutrients[i].value;
@@ -102,9 +116,17 @@ $(document).ready(function(){
 
 // Recipe puppy
 
-// $(".button is-info").on("click", function () {
+// Set Click to Search button
+$("#search").on("click", function () {
 
-  var userIngredients = "chicken";
+  var userIngredients = "";
+  var userButtons = $(".new-ingredient-button");
+  for (i = 0; i < userButtons.length; i++) {
+    var button = userButtons[i]
+    var str = button.innerHTML;
+    userIngredients += str + ","
+  }
+
   var pageNumber = "&p=1";
 
   var settings = {
@@ -121,43 +143,26 @@ $(document).ready(function(){
     var recipePuppyResponse = JSON.parse(response);
     console.log(recipePuppyResponse);
 
-    // List all ingredients 
-    for (i = 0; i < recipePuppyResponse.results.length; i++) {
+    //Remove all content before rendering
+    $(".card-content").remove();
+// List all ingredients 
+    for (i = 0; i < 5; i++) {
 
       // Get title and remove carriage returns
       var recipeTitle = recipePuppyResponse.results[i].title.replace(/[\n\r]/g, '');
       console.log(recipeTitle);
+
+      renderrecipe();
+      
     }
+    function renderrecipe() {
+      var recipeCard = $("<div>");
+      recipeCard.addClass("card-content");
+      recipeCard.attr("data-name", recipeTitle);
+      recipeCard.text(recipeTitle);
+      $("#recipe-cards-section").append(recipeCard);
+    }
+   
   });
-
-// });
-
-
-
-
-  // var urlIngredients = "onions, garlic, chicken legs";
-  // var pageNumber = "&p=1";
-
-  // var settings = {
-  // 	"url": "https://recipe-puppy.p.rapidapi.com/?i=" + urlIngredients + pageNumber,
-  // 	"method": "GET",
-  // 	"headers": {
-  // 		"x-rapidapi-host": "recipe-puppy.p.rapidapi.com",
-  // 		"x-rapidapi-key": "d8b37011d5mshfdc852418e9e300p167785jsn0d94302f0b12"
-  // 	}
-  // }
-
-  // // AJAX Recipe Puppy
-  // $.ajax(settings).then(function (response) {
-  //   var recipePuppyResponse = JSON.parse(response);
-  //   console.log(recipePuppyResponse);
-
-  //   // List all ingredients 
-  //   for (var i = 0; i < recipePuppyResponse.results.length; i++) {
-
-  //     // Get title and remove carriage returns
-  //     var recipeTitle = recipePuppyResponse.results[i].title.replace(/[\n\r]/g, '');
-  //     console.log(recipeTitle);
-  //   }
-
-  // });
+  
+});
