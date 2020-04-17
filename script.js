@@ -21,10 +21,11 @@ $(document).ready(function () {
 
     // Ajax call
     $.ajax(settings).done(function (response) {
-
+      console.log(response);
       // Update HTML to display what was searched
-      var firstFoodReturned = response.foods[0].description;
-      $("#ingredient-name").text("Nutrition info for: " + firstFoodReturned);
+      // var firstFoodReturned = response.foods[0].description;
+      // $("#ingredient-name").text("Nutrition info for: " + firstFoodReturned);
+      
 
       var nutrientValue = "";
 
@@ -114,20 +115,48 @@ $(document).ready(function () {
 
 });
 
+// Created button that will display into pantry list box when a user submits
+// an ingredient.
+$("#pantrySearchBtn").on("click", function createBtn() {
+  var userInput = document.getElementById("pantryText");
+  var pantryInput = document.createElement("button");
+  pantryInput.setAttribute(
+    "class",
+    "button new-ingredient-button is-primary is-light"
+  );
+  pantryInput.setAttribute("id", "pantryListBtn");
+  pantryInput.textContent = userInput.value;
+  document.getElementById("prepend-ingredients-here").appendChild(pantryInput);
+    $("#pantryText").val('');
+});
+// Created event handler for clear all button that will clear all ingredients buttons
+// from pantry list
+$("#clearAllBtn").on("click", function () {
+  var clearBtn = document.getElementById("pantryListBtn");
+  clearBtn.remove();
+});
+
 // Recipe puppy
 
 // Set Click to Search button
 $("#search").on("click", function () {
 
+  //Remove all content before rendering
+  $(".card-content,.card-image").remove();
+  
   var userIngredients = "";
   var userButtons = $(".new-ingredient-button");
   for (i = 0; i < userButtons.length; i++) {
     var button = userButtons[i]
     var str = button.innerHTML;
-    userIngredients += str + ","
-  }
 
-  var pageNumber = "&p=1";
+    userIngredients += str 
+    if(i<userButtons.length-1){
+      userIngredients += ","
+    }
+  }
+  var pageRandom = Math.floor(Math.random() * 10) + 1;
+  var pageNumber = "&p=" + pageRandom;
 
   var settings = {
     "url": "https://recipe-puppy.p.rapidapi.com/?i=" + userIngredients + pageNumber,
@@ -143,26 +172,65 @@ $("#search").on("click", function () {
     var recipePuppyResponse = JSON.parse(response);
     console.log(recipePuppyResponse);
 
-    //Remove all content before rendering
-    $(".card-content").remove();
-// List all ingredients 
+    
+  
+  // List all ingredients 
     for (i = 0; i < 5; i++) {
 
       // Get title and remove carriage returns
       var recipeTitle = recipePuppyResponse.results[i].title.replace(/[\n\r]/g, '');
       console.log(recipeTitle);
+      var recipeImage = recipePuppyResponse.results[i].thumbnail;
+      console.log(recipeImage);
+      var recipeLink = recipePuppyResponse.results[i].href;
+      console.log(recipeLink);
 
+
+      
       renderrecipe();
       
     }
     function renderrecipe() {
+      // var recipeCardContaner = $("<div>");
+      // recipeCardContaner.addClass("is-9 content-column");
+      // var recipeCardColumn = $("<div>");
+      // recipeCardColumn.addClass("has-text-centered");
+      var recipeCardColumn = $("<div>");
+      recipeCardColumn.addClass("column is-4 is-three-quarters-mobile");
+
+      // var recipeCardAnchor = $("<a>");
+      // recipeCardAnchor.attr("a href", recipeLink);
+
+      // recipeCard.append(recipeCardAnchor);
+
       var recipeCard = $("<div>");
-      recipeCard.addClass("card-content");
-      recipeCard.attr("data-name", recipeTitle);
-      recipeCard.text(recipeTitle);
-      $("#recipe-cards-section").append(recipeCard);
+      recipeCard.addClass("card");
+
+      var recipeCardTitle = $("<div>");
+      recipeCardTitle.addClass("card-content");
+      recipeCardTitle.attr("data-name", recipeTitle);
+      recipeCardTitle.text(recipeTitle);
+
+      recipeCard.append(recipeCardTitle)
+
+      var recipeCardImage = $("<img>");
+      recipeCardImage.addClass("card-image");
+      recipeCardImage.attr("src",recipeImage);
+
+      recipeCard.prepend(recipeCardImage);
+     
+
+      recipeCardColumn.append(recipeCard);
+      $("#recipe-cards-section").append(recipeCardColumn);
+
+      
+     
     }
    
   });
   
+
+
+
+
 });

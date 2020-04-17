@@ -75,16 +75,20 @@
 
         <!-- Left hand Column with Search Input -->
         <div class="column is-5 has-text-centered">
-
           <div class="container" id="new-pantry-search-container">
-            <h1 class="titles is-size-3 is-12"><i class="fas fa-drumstick-bite"></i> Pantry Search</h1>
-            <h2 class="titles is-size-5 is-12" style="margin-bottom:10px;">Enter your ingredients.</h2>
+            <h1 class="titles is-size-3 is-12">
+              <i class="fas fa-drumstick-bite"></i> Pantry Search
+            </h1>
+            <h2 class="titles is-size-5 is-12" style="margin-bottom: 10px;">
+              Enter your ingredients.
+            </h2>
             <div class="container" id="pantry-input">
-              <input class="input" type="text" placeholder="Chicken, butter, etc..">
+              <input id="pantryText" class="input" type="text" placeholder="Chicken, butter, etc.." />
             </div>
-            <button class="button is-info" style="margin-top:17px;">Submit</button>
+            <button id="pantrySearchBtn" class="button is-info" style="margin-top: 17px;">
+              Submit
+            </button>
           </div>
-
         </div>
 
         <!-- Right hand Column with ingredient list -->
@@ -103,7 +107,7 @@
               </div>
 
               <!-- Temporary buttons, javascript should create these when an ingredient is submitted -->
-              <button class="button new-ingredient-button is-primary is-light">Chicken</button>
+              <!-- <button class="button new-ingredient-button is-primary is-light">Chicken</button>
               <button class="button new-ingredient-button is-link is-light">Corn</button>
               <button class="button new-ingredient-button is-danger is-light">Spinach</button>
               <button class="button new-ingredient-button is-warning is-light">Avocado</button>
@@ -111,15 +115,17 @@
               <button class="button new-ingredient-button is-primary is-light">Eggs</button>
               <button class="button new-ingredient-button is-danger is-light">Bacon</button>
               <button class="button new-ingredient-button is-success is-light">Cheddar Cheese</button>
-              <button class="button new-ingredient-button is-link is-light">Tomatoes</button>
-
+              <button class="button new-ingredient-button is-link is-light">Tomatoes</button> -->
             </div>
 
             <div class="container level">
-              <button class="button clear-and-search is-medium is-rounded is-danger">Clear All</button>
-              <button class="button clear-and-search is-medium is-rounded is-success" id="search">Search Recipes</button>
+              <button id="clearAllBtn" class="button clear-and-search is-medium is-rounded is-danger">
+                Clear All
+              </button>
+              <button class="button clear-and-search is-medium is-rounded is-success" id="search">
+                Search Recipes
+              </button>
             </div>
-
           </div>
         </div>
       </div>
@@ -131,7 +137,31 @@
     <div class="container main-section" id="recipe-cards-section">
       <h1 class="titles is-size-3 is-12">2. Recipe Cards</h1>
       <h2 class="titles is-size-5 is-12">Pick a recipe!</h2>
-    </div>
+
+      <!-- Right hand content -->
+      <div class="column is-9 content-column" id="append-new-columns-here">
+        <!-- JQUERY DIV: This column can hold three cards before a new one has to be made -->
+        <div class="columns is-three-quarters-mobile has-text-centered" id="append-three-cards-here-1">
+          <!-- CREATE USING JAVASCRIPT: Standard card  -->
+          <div class="column is-4 is-three-quarters-mobile">
+            <!-- <a id="anchor"> -->
+              <!-- <div class="card">
+                <div class="card-image">
+                  <figure class="image is-4by3">
+                    <img src="https://www.thecocktaildb.com/images/media/drink/kpsajh1504368362.jpg"
+                      alt="Placeholder image">
+                  </figure>
+                </div>
+                <div class="card-content">
+                  <div class="content">
+                  </div>
+                </div>
+              </div> -->
+            <!-- </a> -->
+          </div>
+        </div>
+      </div>
+
   </section>
 
   <!-- Incredients Section  -->
@@ -162,6 +192,14 @@
       <p class="tag nutrient-tag is-rounded is-info" id="cholesterol-tag">Cholesterol (mg)</p>
     </div>
   </div>
+
+
+
+
+
+
+
+
 
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script src="script.js"></script>
