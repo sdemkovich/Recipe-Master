@@ -21,11 +21,9 @@ $(document).ready(function () {
 
     // Ajax call
     $.ajax(settings).done(function (response) {
-      console.log(response);
+
       // Update HTML to display what was searched
-      // var firstFoodReturned = response.foods[0].description;
-      // $("#ingredient-name").text("Nutrition info for: " + firstFoodReturned);
-      
+      $("#ingredient-name").text("Nutrition info for: " + ingredientQuery);
 
       var nutrientValue = "";
 
@@ -127,7 +125,7 @@ $("#pantrySearchBtn").on("click", function createBtn() {
   pantryInput.setAttribute("id", "pantryListBtn");
   pantryInput.textContent = userInput.value;
   document.getElementById("prepend-ingredients-here").appendChild(pantryInput);
-    $("#pantryText").val('');
+  $("#pantryText").val('');
 });
 // Created event handler for clear all button that will clear all ingredients buttons
 // from pantry list
@@ -142,16 +140,16 @@ $("#clearAllBtn").on("click", function () {
 $("#search").on("click", function () {
 
   //Remove all content before rendering
-  $(".card-content,.card-image").remove();
-  
+  $(".is-3").remove();
+
   var userIngredients = "";
   var userButtons = $(".new-ingredient-button");
   for (i = 0; i < userButtons.length; i++) {
     var button = userButtons[i]
     var str = button.innerHTML;
 
-    userIngredients += str 
-    if(i<userButtons.length-1){
+    userIngredients += str
+    if (i < userButtons.length - 1) {
       userIngredients += ","
     }
   }
@@ -170,67 +168,54 @@ $("#search").on("click", function () {
   // AJAX Recipe Puppy
   $.ajax(settings).then(function (response) {
     var recipePuppyResponse = JSON.parse(response);
-    console.log(recipePuppyResponse);
+    console.log(recipePuppyResponse)
 
-    
-  
-  // List all ingredients 
-    for (i = 0; i < 5; i++) {
+    // List all ingredients 
+    for (i = 0; i < 4; i++) {
 
       // Get title and remove carriage returns
       var recipeTitle = recipePuppyResponse.results[i].title.replace(/[\n\r]/g, '');
-      console.log(recipeTitle);
       var recipeImage = recipePuppyResponse.results[i].thumbnail;
-      console.log(recipeImage);
+      if (recipePuppyResponse.results[i].thumbnail === "") {
+        recipeImage = "./docs/loading-image.png"
+      }
       var recipeLink = recipePuppyResponse.results[i].href;
-      console.log(recipeLink);
 
-
-      
       renderrecipe();
-      
     }
+
     function renderrecipe() {
-      // var recipeCardContaner = $("<div>");
-      // recipeCardContaner.addClass("is-9 content-column");
-      // var recipeCardColumn = $("<div>");
-      // recipeCardColumn.addClass("has-text-centered");
+
+      //Create Column div for Card
       var recipeCardColumn = $("<div>");
-      recipeCardColumn.addClass("column is-4 is-three-quarters-mobile");
+      recipeCardColumn.addClass("column is-3");
 
-      // var recipeCardAnchor = $("<a>");
-      // recipeCardAnchor.attr("a href", recipeLink);
+      //Create anchor and assign recipe link to it 
+      var recipeCardAnchor = $("<a>");
+      recipeCardAnchor.attr("href", recipeLink);
 
-      // recipeCard.append(recipeCardAnchor);
-
+      //Create Card to place recipe image and name into it
       var recipeCard = $("<div>");
       recipeCard.addClass("card");
+      var recipeCardImage = $("<div>");
+      recipeCardImage.addClass("card-image");
+      var recipeCardFigure = $("<figure>");
+      recipeCardFigure.addClass("image is-4by3");
+      var recipeFigureImage = $("<img>");
+      recipeFigureImage.attr("src", recipeImage);
+      //Append child class into parent
+      recipeCardFigure.append(recipeFigureImage);
+      recipeCardImage.append(recipeCardFigure);
 
       var recipeCardTitle = $("<div>");
       recipeCardTitle.addClass("card-content");
       recipeCardTitle.attr("data-name", recipeTitle);
       recipeCardTitle.text(recipeTitle);
-
-      recipeCard.append(recipeCardTitle)
-
-      var recipeCardImage = $("<img>");
-      recipeCardImage.addClass("card-image");
-      recipeCardImage.attr("src",recipeImage);
-
-      recipeCard.prepend(recipeCardImage);
-     
-
-      recipeCardColumn.append(recipeCard);
-      $("#recipe-cards-section").append(recipeCardColumn);
-
-      
-     
+      //Append child class into parent and into HTML
+      recipeCard.append(recipeCardImage, recipeCardTitle)
+      recipeCardAnchor.append(recipeCard);
+      recipeCardColumn.append(recipeCardAnchor);
+      $("#append-three-cards-here-1").append(recipeCardColumn);
     }
-   
   });
-  
-
-
-
-
 });
