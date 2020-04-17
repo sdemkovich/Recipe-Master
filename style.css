@@ -1,126 +1,125 @@
 body {
-    background: url(./docs/pantry.png) center center;
+  background: url(./docs/pantry.png) center center;
 }
 
 .nutrient-tag {
-    width: 125px;
-    font-weight: bold;
-    margin: 10px 5px;
+  width: 125px;
+  font-weight: bold;
+  margin: 10px 5px;
 }
 
 .navbar {
-    background-color: #b1f6cb;
+  background-color: #b1f6cb;
 }
 
 .banner-image {
-    border: solid black 1px;
-    margin: 0 auto;
-    height: 60%;
-    width: 100%;
-    background-position: center;
-    background-image: url(./docs/banner.png);
-    background-size: cover;
+  border: solid black 1px;
+  margin: 0 auto;
+  height: 60%;
+  width: 100%;
+  background-position: center;
+  background-image: url(./docs/banner.png);
+  background-size: cover;
 }
 
 .banner-bottom {
-    background-image: url(./docs/lower-banner.png);
-    height: 200px;
-    background-position: center center;
+  background-image: url(./docs/lower-banner.png);
+  height: 200px;
+  background-position: center center;
 }
 
 .fa-2x {
-    margin-right: 15px;
+  margin-right: 15px;
 }
 
 .main-section {
-    color: white;
-    background-color: rgba(72, 199, 116,0.75);
-    padding: 100px;
+  color: white;
+  background-color: rgba(72, 199, 116, 0.75);
+  padding: 100px;
 }
 
 /* Contains Recipe Master title  */
 .header-div {
-    font-family: 'Lato', sans-serif;
-    background-color: rgba(69, 75, 71, 0.75);
-    width: 43%;
-    padding: 3%;
-    border-radius: 5%;
+  font-family: "Lato", sans-serif;
+  background-color: rgba(69, 75, 71, 0.75);
+  width: 43%;
+  padding: 3%;
+  border-radius: 5%;
 }
 
 #pantry-input {
-    display: inline-block
+  display: inline-block;
 }
 
 .recipe-master-title {
-    font-family: 'Lora', serif;
+  font-family: "Lora", serif;
 }
 
 #pantry-section {
-    height: 100%;
+  height: 100%;
 }
 
 /* Pantry section div  */
 #outer-pantry-container {
-    position: relative;
-    z-index: 1;
-    height: 100%;
+  position: relative;
+  z-index: 1;
+  height: 100%;
 }
 
 /* Row that holds both columns */
 #pantry-column-row {
-    height: 100%;
+  height: 100%;
 }
 
 /* Pantry search container */
 #new-pantry-search-container {
-    height: 35%;
-    width: 70%;
-    padding-top: 2%;
-    background-color: whitesmoke;
-    font-family: 'Lato', sans-serif;
-    border-radius: 5%;
-    color: black;
-    margin-bottom: 8%;
+  height: 35%;
+  width: 70%;
+  padding-top: 2%;
+  background-color: whitesmoke;
+  font-family: "Lato", sans-serif;
+  border-radius: 5%;
+  color: black;
+  margin-bottom: 8%;
 }
 
 #pantry-ingredients-container {
-    height: 75%;
-    width: 90%;
-    text-align: center;
+  height: 75%;
+  width: 90%;
+  text-align: center;
 }
 
 #prepend-ingredients-here {
-    border-radius: 5%;
-    height: 100%;
+  border-radius: 5%;
+  height: 100%;
 }
 
 .new-ingredient-button {
-    width: 25%;
-    margin: 1%;
+  width: 25%;
+  margin: 1%;
 }
 
 #prepend-ingredients-here .bg {
-    position: absolute;
-    z-index: -1;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    border: solid whitesmoke 10px;
-    border-radius: 5%;
-    background: url(./docs/corkboard.png) center center;
-    opacity: 1;
-    width: 100%;
-    height: 100%;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border: solid whitesmoke 10px;
+  border-radius: 5%;
+  background: url(./docs/corkboard.png) center center;
+  opacity: 1;
+  width: 100%;
+  height: 100%;
 }
 
 .clear-and-search {
-    margin: 2%;
-    width: 40%;
-    border: solid whitesmoke 3px;
+  margin: 2%;
+  width: 40%;
+  border: solid whitesmoke 3px;
 }
 
 .recipe-wrapper {
-    margin-top: 20%;
+  margin-top: 20%;
 }
-
