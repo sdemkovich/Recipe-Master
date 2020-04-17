@@ -123,3 +123,12 @@ body {
 .recipe-wrapper {
   margin-top: 20%;
 }
+.card-content {
+  height: 95px;
+  background-color: whitesmoke;
+  font-style: oblique;
+  border-top-style: dotted;
+  border-top-color: lightslategray;
+  border-width: thin;
+  font-weight: bold;
+}
