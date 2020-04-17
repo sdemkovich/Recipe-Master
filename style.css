@@ -32,11 +32,23 @@ body {
     margin-right: 15px;
 }
 
-.main-section {
+#recipe-cards-section {
     color: white;
-    background: url(./docs/grunge-wooden-cutting-board-with-copy-space-design-make-food-background_3249-3466.jpg) center;
-    /* background-color: rgba(72, 199, 116,0.75); */
-    padding: 150px;
+    background-size: cover;
+    background-image: url(./docs/grunge-wooden-cutting-board-with-copy-space-design-make-food-background_3249-3466.jpg);
+    border: whitesmoke solid 3px;
+    padding: 150px 0px;
+    align-items: center;
+}
+.is-size-3 {
+    font-size: large;
+}
+#ingredients-section {
+    color: white;
+    background-image: url(./docs/ingredients.jpg);
+    background-size: cover;
+    border: whitesmoke solid 3px;
+    padding: 100px 0px;
 }
 
 /* Contains Recipe Master title  */

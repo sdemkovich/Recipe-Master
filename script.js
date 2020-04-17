@@ -216,6 +216,7 @@ $("#search").on("click", function () {
       recipeCardAnchor.append(recipeCard);
       recipeCardColumn.append(recipeCardAnchor);
       $("#append-three-cards-here-1").append(recipeCardColumn);
+      $("#recipe-cards-section").css("padding", "5%");
     }
   });
 });
