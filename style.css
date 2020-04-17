@@ -1,5 +1,5 @@
 body {
-    background: url(./docs/pantry.png) center center;
+    background: url(./docs/pantry1.jpg) center center;
 }
 
 .nutrient-tag {
@@ -34,8 +34,9 @@ body {
 
 .main-section {
     color: white;
-    background-color: rgba(72, 199, 116,0.75);
-    padding: 100px;
+    background: url(./docs/grunge-wooden-cutting-board-with-copy-space-design-make-food-background_3249-3466.jpg) center;
+    /* background-color: rgba(72, 199, 116,0.75); */
+    padding: 150px;
 }
 
 /* Contains Recipe Master title  */
