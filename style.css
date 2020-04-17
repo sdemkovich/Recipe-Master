@@ -38,11 +38,12 @@ body {
     padding: 100px;
 }
 
+/* Contains Recipe Master title  */
 .header-div {
     font-family: 'Lato', sans-serif;
     background-color: rgba(69, 75, 71, 0.75);
-    width: 41%;
-    padding: 30px;
+    width: 43%;
+    padding: 3%;
     border-radius: 5%;
 }
 
@@ -52,7 +53,6 @@ body {
 
 .recipe-master-title {
     font-family: 'Lora', serif;
-    font-weight: 300px;
 }
 
 #pantry-section {
@@ -73,17 +73,18 @@ body {
 
 /* Pantry search container */
 #new-pantry-search-container {
-    height: 33%;
+    height: 35%;
     width: 70%;
     padding-top: 2%;
     background-color: whitesmoke;
     font-family: 'Lato', sans-serif;
     border-radius: 5%;
     color: black;
+    margin-bottom: 8%;
 }
 
 #pantry-ingredients-container {
-    height: 60%;
+    height: 75%;
     width: 90%;
     text-align: center;
 }
@@ -115,6 +116,10 @@ body {
 
 .clear-and-search {
     margin: 2%;
-    width: 35%;
+    width: 40%;
     border: solid whitesmoke 3px;
+}
+
+.recipe-wrapper {
+    margin-top: 20%;
 }

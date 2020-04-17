@@ -54,10 +54,10 @@
   </nav>
 
   <!-- Recipe Master Banner -->
-  <div class="columns banner-image is-vcentered is-marginless">
+  <div class="columns is-mobile banner-image is-vcentered is-marginless">
     <div class="column has-text-centered">
       <div class="container header-div">
-        <h1 class="title is-size-1 has-text-white recipe-master-title">Recipe Master</h1>
+        <h1 class="title is-size-1 is-size-3-mobile has-text-white recipe-master-title">Recipe Master</h1>
         <h2 class="has-text-white">Make the most of your kitchen pantry!</h2>
       </div>
     </div>
@@ -74,10 +74,10 @@
       <div class="columns is-vcentered" id="pantry-column-row">
 
         <!-- Left hand Column with Search Input -->
-        <div class="column is-5 has-text-centered">
+        <div class="column has-text-centered">
 
           <div class="container" id="new-pantry-search-container">
-            <h1 class="titles is-size-3 is-12"><i class="fas fa-drumstick-bite"></i> Pantry Search</h1>
+            <h1 class="titles is-size-3 is-size-4-mobile"><i class="fas fa-drumstick-bite"></i> Pantry Search</h1>
             <h2 class="titles is-size-5 is-12" style="margin-bottom:10px;">Enter your ingredients.</h2>
             <div class="container" id="pantry-input">
               <input class="input" type="text" placeholder="Chicken, butter, etc..">
@@ -103,21 +103,22 @@
               </div>
 
               <!-- Temporary buttons, javascript should create these when an ingredient is submitted -->
-              <button class="button new-ingredient-button is-primary is-light">Chicken</button>
-              <button class="button new-ingredient-button is-link is-light">Corn</button>
-              <button class="button new-ingredient-button is-danger is-light">Spinach</button>
-              <button class="button new-ingredient-button is-warning is-light">Avocado</button>
-              <button class="button new-ingredient-button is-info is-light">Salmon</button>
-              <button class="button new-ingredient-button is-primary is-light">Eggs</button>
-              <button class="button new-ingredient-button is-danger is-light">Bacon</button>
-              <button class="button new-ingredient-button is-success is-light">Cheddar Cheese</button>
-              <button class="button new-ingredient-button is-link is-light">Tomatoes</button>
+              <button class="button new-ingredient-button is-primary is-light is-medium">Chicken</button>
+              <button class="button new-ingredient-button is-link is-light is-medium">Corn</button>
+              <button class="button new-ingredient-button is-danger is-light is-medium">Spinach</button>
+              <button class="button new-ingredient-button is-warning is-light is-medium">Avocado</button>
+              <button class="button new-ingredient-button is-info is-light is-medium">Salmon</button>
+              <button class="button new-ingredient-button is-primary is-light is-medium">Eggs</button>
+              <button class="button new-ingredient-button is-danger is-light is-medium">Bacon</button>
+              <button class="button new-ingredient-button is-success is-light is-medium">Cheddar Cheese</button>
+              <button class="button new-ingredient-button is-link is-light is-medium">Tomatoes</button>
 
             </div>
 
             <div class="container level">
-              <button class="button clear-and-search is-medium is-rounded is-danger">Clear All</button>
-              <button class="button clear-and-search is-medium is-rounded is-success">Search Recipes</button>
+              <button class="button clear-and-search is-size-6-mobile is-rounded is-danger">Clear All</button>
+              <button class="button clear-and-search is-size-6-mobile is-rounded is-success" id="search">Search
+                Recipes</button>
             </div>
 
           </div>
@@ -127,7 +128,7 @@
   </section>
 
   <!-- Recipe Cards Section -->
-  <section class="section has-text-centered">
+  <section class="section has-text-centered recipe-wrapper">
     <div class="container main-section" id="recipe-cards-section">
       <h1 class="titles is-size-3 is-12">2. Recipe Cards</h1>
       <h2 class="titles is-size-5 is-12">Pick a recipe!</h2>

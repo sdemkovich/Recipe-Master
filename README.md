@@ -1,11 +1,12 @@
 # Project1
 
 ## Latest Commit  
--Added lower banner  
--Modified Pantry Search, Pantry List, and background  
+-Modified div classes for responsiveness  
 
 
 ## Previous commits  
+-Added lower banner  
+-Modified Pantry Search, Pantry List, and background  
 -Modify HTML/CSS for UI  
 -Error handling to display "N/A" if nutrient is not found  
 -Added kcal units to Calories  
