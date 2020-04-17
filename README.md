@@ -1,10 +1,15 @@
 # Project1
 
 ## Latest Commit  
--Modified div classes for responsiveness  
-
+-Added recipe card functionality  
+-Added recipe ingredients functionality  
 
 ## Previous commits  
+-Changed on click handler for ingredients to new class  
+-Added media queries to change margins based on screen width  
+-Moved all script into document ready for jQuery  
+-Added on click handler for recipe cards to display ingredients   
+-Modified div classes for responsiveness  
 -Added lower banner  
 -Modified Pantry Search, Pantry List, and background  
 -Modify HTML/CSS for UI  
