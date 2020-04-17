@@ -4,7 +4,7 @@ $(document).ready(function () {
   // FoodData Central API 
 
   // When a food ingredient button is clicked
-  $(".button").on("click", function () {
+  $(document).on("click", ".ingredient-button", function () {
 
     // The button title will be the query food
     var ingredientQuery = $(this).text();
@@ -21,11 +21,9 @@ $(document).ready(function () {
 
     // Ajax call
     $.ajax(settings).done(function (response) {
-      console.log(response);
       // Update HTML to display what was searched
-      // var firstFoodReturned = response.foods[0].description;
-      // $("#ingredient-name").text("Nutrition info for: " + firstFoodReturned);
-      
+      $("#ingredient-name").text("Nutrition info for: " + ingredientQuery);
+
 
       var nutrientValue = "";
 
@@ -113,124 +111,151 @@ $(document).ready(function () {
 
   })
 
-});
-
-// Created button that will display into pantry list box when a user submits
-// an ingredient.
-$("#pantrySearchBtn").on("click", function createBtn() {
-  var userInput = document.getElementById("pantryText");
-  var pantryInput = document.createElement("button");
-  pantryInput.setAttribute(
-    "class",
-    "button new-ingredient-button is-primary is-light"
-  );
-  pantryInput.setAttribute("id", "pantryListBtn");
-  pantryInput.textContent = userInput.value;
-  document.getElementById("prepend-ingredients-here").appendChild(pantryInput);
+  // Created button that will display into pantry list box when a user submits
+  // an ingredient.
+  $("#pantrySearchBtn").on("click", function createBtn() {
+    var userInput = document.getElementById("pantryText");
+    var pantryInput = document.createElement("button");
+    pantryInput.setAttribute(
+      "class",
+      "button new-ingredient-button is-primary is-light"
+    );
+    pantryInput.setAttribute("id", "pantryListBtn");
+    pantryInput.textContent = userInput.value;
+    document.getElementById("prepend-ingredients-here").appendChild(pantryInput);
     $("#pantryText").val('');
-});
-// Created event handler for clear all button that will clear all ingredients buttons
-// from pantry list
-$("#clearAllBtn").on("click", function () {
-  var clearBtn = document.getElementById("pantryListBtn");
-  clearBtn.remove();
-});
-
-// Recipe puppy
-
-// Set Click to Search button
-$("#search").on("click", function () {
-
-  //Remove all content before rendering
-  $(".card-content,.card-image").remove();
-  
-  var userIngredients = "";
-  var userButtons = $(".new-ingredient-button");
-  for (i = 0; i < userButtons.length; i++) {
-    var button = userButtons[i]
-    var str = button.innerHTML;
-
-    userIngredients += str 
-    if(i<userButtons.length-1){
-      userIngredients += ","
-    }
-  }
-  var pageRandom = Math.floor(Math.random() * 10) + 1;
-  var pageNumber = "&p=" + pageRandom;
-
-  var settings = {
-    "url": "https://recipe-puppy.p.rapidapi.com/?i=" + userIngredients + pageNumber,
-    "method": "GET",
-    "headers": {
-      "x-rapidapi-host": "recipe-puppy.p.rapidapi.com",
-      "x-rapidapi-key": "d8b37011d5mshfdc852418e9e300p167785jsn0d94302f0b12"
-    }
-  }
-
-  // AJAX Recipe Puppy
-  $.ajax(settings).then(function (response) {
-    var recipePuppyResponse = JSON.parse(response);
-    console.log(recipePuppyResponse);
-
-    
-  
-  // List all ingredients 
-    for (i = 0; i < 5; i++) {
-
-      // Get title and remove carriage returns
-      var recipeTitle = recipePuppyResponse.results[i].title.replace(/[\n\r]/g, '');
-      console.log(recipeTitle);
-      var recipeImage = recipePuppyResponse.results[i].thumbnail;
-      console.log(recipeImage);
-      var recipeLink = recipePuppyResponse.results[i].href;
-      console.log(recipeLink);
-
-
-      
-      renderrecipe();
-      
-    }
-    function renderrecipe() {
-      // var recipeCardContaner = $("<div>");
-      // recipeCardContaner.addClass("is-9 content-column");
-      // var recipeCardColumn = $("<div>");
-      // recipeCardColumn.addClass("has-text-centered");
-      var recipeCardColumn = $("<div>");
-      recipeCardColumn.addClass("column is-4 is-three-quarters-mobile");
-
-      // var recipeCardAnchor = $("<a>");
-      // recipeCardAnchor.attr("a href", recipeLink);
-
-      // recipeCard.append(recipeCardAnchor);
-
-      var recipeCard = $("<div>");
-      recipeCard.addClass("card");
-
-      var recipeCardTitle = $("<div>");
-      recipeCardTitle.addClass("card-content");
-      recipeCardTitle.attr("data-name", recipeTitle);
-      recipeCardTitle.text(recipeTitle);
-
-      recipeCard.append(recipeCardTitle)
-
-      var recipeCardImage = $("<img>");
-      recipeCardImage.addClass("card-image");
-      recipeCardImage.attr("src",recipeImage);
-
-      recipeCard.prepend(recipeCardImage);
-     
-
-      recipeCardColumn.append(recipeCard);
-      $("#recipe-cards-section").append(recipeCardColumn);
-
-      
-     
-    }
-   
   });
-  
+  // Created event handler for clear all button that will clear all ingredients buttons
+  // from pantry list
+  $("#clearAllBtn").on("click", function () {
+    var clearBtn = document.getElementById("pantryListBtn");
+    clearBtn.remove();
+  });
+
+  // Recipe puppy
+
+  var userIngredients = "";
+  // Set Click to Search button
+  $("#search").on("click", function () {
+
+    //Remove all content before rendering
+    $(".card-content,.card-image").remove();
+
+    userIngredients = "";
+    var userButtons = $(".new-ingredient-button");
+    for (i = 0; i < userButtons.length; i++) {
+      var button = userButtons[i]
+      var str = button.innerHTML;
+
+      userIngredients += str
+      if (i < userButtons.length - 1) {
+        userIngredients += ","
+      }
+    }
+    var pageRandom = Math.floor(Math.random() * 10) + 1;
+    var pageNumber = "&p=" + pageRandom;
+
+    var settings = {
+      "url": "https://recipe-puppy.p.rapidapi.com/?i=" + userIngredients + pageNumber,
+      "method": "GET",
+      "headers": {
+        "x-rapidapi-host": "recipe-puppy.p.rapidapi.com",
+        "x-rapidapi-key": "d8b37011d5mshfdc852418e9e300p167785jsn0d94302f0b12"
+      }
+    }
+
+    // AJAX Recipe Puppy
+    $.ajax(settings).then(function (response) {
+      var recipePuppyResponse = JSON.parse(response);
+      console.log(recipePuppyResponse);
 
 
 
+      // List all ingredients 
+      for (i = 0; i < 5; i++) {
+
+        // Get title and remove carriage returns
+        var recipeTitle = recipePuppyResponse.results[i].title.replace(/[\n\r]/g, '');
+        var recipeImage = recipePuppyResponse.results[i].thumbnail;
+        var recipeLink = recipePuppyResponse.results[i].href;
+
+
+
+        renderrecipe();
+
+      }
+      function renderrecipe() {
+        // var recipeCardContaner = $("<div>");
+        // recipeCardContaner.addClass("is-9 content-column");
+        // var recipeCardColumn = $("<div>");
+        // recipeCardColumn.addClass("has-text-centered");
+        var recipeCardColumn = $("<div>");
+        recipeCardColumn.addClass("column is-4 is-three-quarters-mobile");
+
+        // var recipeCardAnchor = $("<a>");
+        // recipeCardAnchor.attr("a href", recipeLink);
+
+        // recipeCard.append(recipeCardAnchor);
+
+        var recipeCard = $("<div>");
+        recipeCard.addClass("card");
+
+        var recipeCardTitle = $("<div>");
+        recipeCardTitle.addClass("card-content");
+        recipeCardTitle.attr("data-name", recipeTitle);
+        recipeCardTitle.attr("data-ingredients", recipePuppyResponse.results[i].ingredients);
+        recipeCardTitle.text(recipeTitle);
+
+        recipeCard.append(recipeCardTitle)
+
+        var recipeCardImage = $("<img>");
+        recipeCardImage.addClass("card-image");
+        recipeCardImage.attr("src", recipeImage);
+
+        recipeCard.prepend(recipeCardImage);
+
+
+        recipeCardColumn.append(recipeCard);
+        $("#recipe-cards-div").append(recipeCardColumn);
+
+
+
+      }
+
+    });
+  });
+
+  // Onclick handler to display ingredients
+  $(document).on("click", ".card", function() {
+    $("#append-recipe-ingredients-here").html("");
+    var ingredientList = $(this).children("div");
+    ingredientList = ingredientList.data("ingredients");
+    var ingredientListArray = ingredientList.split(', ');
+
+    for (var i = 0; i < ingredientListArray.length; i++) {
+      var ingredientName = ingredientListArray[i];
+      
+      var newButtonEl = $("<button>");
+      newButtonEl.addClass("button ingredient-button");
+      
+      if (userIngredients.toLowerCase().includes(ingredientName)) {
+        newButtonEl.addClass("is-primary");
+      } else {
+        newButtonEl.addClass("is-danger");
+      }
+      
+      
+      ingredientName = capitalizeFirstLetter(ingredientName);
+      newButtonEl.text(ingredientName);
+      $("#append-recipe-ingredients-here").append(newButtonEl);
+    }
+
+    function capitalizeFirstLetter(string) {
+      return string.charAt(0).toUpperCase() + string.slice(1);
+    }
+
+
+  });
 
 });
+

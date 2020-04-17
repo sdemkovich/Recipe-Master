@@ -35,7 +35,7 @@ body {
 .main-section {
     color: white;
     background-color: rgba(72, 199, 116,0.75);
-    padding: 100px;
+    padding: 100px 0px;
 }
 
 /* Contains Recipe Master title  */
@@ -57,6 +57,7 @@ body {
 
 #pantry-section {
     height: 100%;
+    padding-bottom: 0px;
 }
 
 /* Pantry section div  */
@@ -120,7 +121,20 @@ body {
     border: solid whitesmoke 3px;
 }
 
-.recipe-wrapper {
-    margin-top: 20%;
+.ingredient-button {
+    margin: 1%;
 }
 
+/* Creates margin for smaller screens between pantry and recipe section */
+@media screen and (max-width: 768px) {
+    #recipe-cards-section {
+        margin-top: 40%;
+    }
+}
+
+/* No top margin for larger screens between pantry and recipe sections */
+@media screen and (min-width: 769px) {
+    #recipe-cards-section {
+        margin-top: 0px;
+    }
+}
