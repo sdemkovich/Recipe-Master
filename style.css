@@ -34,16 +34,21 @@ body {
 
 #ingredient-wrapper {
     color: white;
-    background-image: url(/docs/ingredients.jpg);
+    background-image: url(./docs/ingredients.jpg);
     background-size: cover;
 }
 
 #recipe-cards-section {
     color: white;
-    background-size: cover;
-    background-image: url(./docs/grunge-wooden-cutting-board-with-copy-space-design-make-food-background_3249-3466.jpg);
+    /* background-size: cover; */
+    /* background-image: url(./docs/grunge-wooden-cutting-board-with-copy-space-design-make-food-background_3249-3466.jpg); */
     border: whitesmoke solid 3px; 
     padding: 150px 0px;
+}
+
+#recipe-wrapper {
+  background-image: url(./docs/grunge-wooden-cutting-board-with-copy-space-design-make-food-background_3249-3466.jpg);
+  background-size: cover;
 }
 
 #ingredient-section {

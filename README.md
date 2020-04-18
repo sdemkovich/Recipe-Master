@@ -1,10 +1,15 @@
-# Project1
+# Project1  
+Recipe Master: find recipes and nutrition information for ingredients you have at home
+
+User Story  
+As a user, I want to make meals with the food I have at home, so that I can save money, reduce waste, and eat healthy.   
+
 
 ## Latest Commit  
--Modified front end for recipe card and ingredient sections  
--Additional pantry search error handling  
 
 ## Previous commits  
+-Modified front end for recipe card and ingredient sections  
+-Additional pantry search error handling  
 -Added recipe card functionality  
 -Added recipe ingredients functionality  
 -Changed on click handler for ingredients to new class  
