@@ -143,6 +143,7 @@ $(document).ready(function () {
       $("#pantryText").val("");
     }
   });
+
   // Created event handler for clear all button that will clear all ingredients buttons
   // from pantry list
   $("#clearAllBtn").on("click", function () {
@@ -196,18 +197,18 @@ $(document).ready(function () {
         }
         var recipeLink = recipePuppyResponse.results[i].href;
 
-        renderrecipe();
+        renderRecipe();
       }
 
-      function renderrecipe() {
+      function renderRecipe() {
 
         //Create Column div for Card
         var recipeCardColumn = $("<div>");
         recipeCardColumn.addClass("column is-3");
 
         //Create anchor and assign recipe link to it 
-        var recipeCardAnchor = $("<a>");
-        // recipeCardAnchor.attr("href", recipeLink);
+        var recipeCardAnchor = $("<a target=_blank>");
+        recipeCardAnchor.attr("href", recipeLink);
 
         //Create Card to place recipe image and name into it
         var recipeCard = $("<div>");
@@ -232,6 +233,7 @@ $(document).ready(function () {
         recipeCardAnchor.append(recipeCard);
         recipeCardColumn.append(recipeCardAnchor);
         $("#append-three-cards-here-1").append(recipeCardColumn);
+        $("#recipe-cards-section").css("padding", "5%");
       }
     });
 
