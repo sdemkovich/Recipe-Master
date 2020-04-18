@@ -1,6 +1,5 @@
 # Project1
 
-<<<<<<< HEAD
 ## Latest Commit  
 -Added recipe card functionality  
 -Added recipe ingredients functionality  
@@ -11,14 +10,6 @@
 -Moved all script into document ready for jQuery  
 -Added on click handler for recipe cards to display ingredients   
 -Modified div classes for responsiveness  
-=======
-## Latest Commit
-
--Modified div classes for responsiveness
-
-## Previous commits
-
->>>>>>> c719f08dae86ea8c96c186dbd3961f99f31a0a37
 -Added lower banner  
 -Modified Pantry Search, Pantry List, and background  
 -Modify HTML/CSS for UI  
