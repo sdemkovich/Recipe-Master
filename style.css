@@ -1,5 +1,5 @@
 body {
-    background: url(./docs/pantry1.jpg) center center;
+  background: url(./docs/pantry1.jpg) center center;
 }
 
 .nutrient-tag {
@@ -32,23 +32,33 @@ body {
   margin-right: 15px;
 }
 
-#recipe-cards-section {
-    color: white;
-    background-size: cover;
-    background-image: url(./docs/grunge-wooden-cutting-board-with-copy-space-design-make-food-background_3249-3466.jpg);
-    border: whitesmoke solid 3px;
-    padding: 150px 0px;
-    align-items: center;
+#recipe-cards-div {
+  color: white;
+  background-size: cover;
+  background-image: url(./docs/grunge-wooden-cutting-board-with-copy-space-design-make-food-background_3249-3466.jpg);
+  border: whitesmoke solid 3px;
+  padding: 70px;
 }
-.is-size-3 {
-    font-size: large;
+#pick-recipe {
+  color: white;
+  font-family: "Lato", sans-serif;
+  margin-bottom: 20px;
 }
+.column.is-11 {
+  width: auto;
+  margin-left: 0px 20px;
+}
+.card {
+  border-style: outset;
+  border-color: white;
+}
+
 #ingredients-section {
-    color: white;
-    background-image: url(./docs/ingredients.jpg);
-    background-size: cover;
-    border: whitesmoke solid 3px;
-    padding: 100px 0px;
+  color: white;
+  background-image: url(./docs/ingredients.jpg);
+  background-size: cover;
+  border: whitesmoke solid 3px;
+  padding: 100px 0px;
 }
 
 /* Contains Recipe Master title  */
@@ -70,8 +80,8 @@ body {
 }
 
 #pantry-section {
-    height: 100%;
-    padding-bottom: 0px;
+  height: 100%;
+  padding-bottom: 0px;
 }
 
 /* Pantry section div  */
@@ -136,18 +146,18 @@ body {
 }
 
 .ingredient-button {
-    margin: 1%;
+  margin: 1%;
 }
 
 /* Creates margin for smaller screens between pantry and recipe section */
 @media screen and (max-width: 768px) {
-    #recipe-cards-section {
-        margin-top: 40%;
-    }
+  #recipe-cards-section {
+    margin-top: 40%;
+  }
 }
 .card-content {
   height: 95px;
-  background-color: whitesmoke;
+  background-color: linen;
   font-style: oblique;
   border-top-style: dotted;
   border-top-color: lightslategray;
@@ -157,7 +167,7 @@ body {
 
 /* No top margin for larger screens between pantry and recipe sections */
 @media screen and (min-width: 769px) {
-    #recipe-cards-section {
-        margin-top: 0px;
-    }
+  #recipe-cards-section {
+    margin-top: 0px;
+  }
 }

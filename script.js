@@ -206,8 +206,8 @@ $(document).ready(function () {
         recipeCardColumn.addClass("column is-3");
 
         //Create anchor and assign recipe link to it 
-        var recipeCardAnchor = $("<a>");
-        // recipeCardAnchor.attr("href", recipeLink);
+        var recipeCardAnchor = $("<a target=_blank>");
+        recipeCardAnchor.attr("href", recipeLink);
 
         //Create Card to place recipe image and name into it
         var recipeCard = $("<div>");
@@ -232,6 +232,8 @@ $(document).ready(function () {
         recipeCardAnchor.append(recipeCard);
         recipeCardColumn.append(recipeCardAnchor);
         $("#append-three-cards-here-1").append(recipeCardColumn);
+        // Change the padding after you "search" is clicked 
+        $("#recipe-cards-section").css("padding", "5%");
       }
     });
 
@@ -265,40 +267,5 @@ $(document).ready(function () {
         return string.charAt(0).toUpperCase() + string.slice(1);
       }
     });
-
-    function renderrecipe() {
-
-      //Create Column div for Card
-      var recipeCardColumn = $("<div>");
-      recipeCardColumn.addClass("column is-3");
-
-      //Create anchor and assign recipe link to it 
-      var recipeCardAnchor = $("<a>");
-      recipeCardAnchor.attr("href", recipeLink);
-
-      //Create Card to place recipe image and name into it
-      var recipeCard = $("<div>");
-      recipeCard.addClass("card");
-      var recipeCardImage = $("<div>");
-      recipeCardImage.addClass("card-image");
-      var recipeCardFigure = $("<figure>");
-      recipeCardFigure.addClass("image is-4by3");
-      var recipeFigureImage = $("<img>");
-      recipeFigureImage.attr("src", recipeImage);
-      //Append child class into parent
-      recipeCardFigure.append(recipeFigureImage);
-      recipeCardImage.append(recipeCardFigure);
-
-      var recipeCardTitle = $("<div>");
-      recipeCardTitle.addClass("card-content");
-      recipeCardTitle.attr("data-name", recipeTitle);
-      recipeCardTitle.text(recipeTitle);
-      //Append child class into parent and into HTML
-      recipeCard.append(recipeCardImage, recipeCardTitle)
-      recipeCardAnchor.append(recipeCard);
-      recipeCardColumn.append(recipeCardAnchor);
-      $("#append-three-cards-here-1").append(recipeCardColumn);
-      $("#recipe-cards-section").css("padding", "5%");
-    }
   });
 });
