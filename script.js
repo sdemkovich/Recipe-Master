@@ -124,13 +124,30 @@ $(document).ready(function () {
   // an ingredient.
   $("#pantrySearchBtn").on("click", function createBtn() {
     var userInput = document.getElementById("pantryText");
+    $("#pantry-search-form").submit(function () {
+      createBtn();
+      return false;
+    });
+    // if (userInput.value != "" || userInput.value != null){
+
+    // var pantryInput = document.createElement("button");
+    //   pantryInput.setAttribute(
+    //   "class",
+    // "button new-ingredient-button is-danger is-light is-rounded"
+    //);
+    //pantryInput.setAttribute("id", "pantryListBtn");
+    //pantryInput.textContent = userInput.value;
+    //document
+    //.getElementById("prepend-ingredients-here")
+    //.appendChild(pantryInput);
+    // $("#pantryText").val("");
+    // }
     if (userInput.value == "" || userInput.value == null) {
+      //alert("enter an ingredient");
       return false;
     } else {
-      $("#pantry-search-form").submit(function () {
-        createBtn();
-        return false;
-      });
+      //var buttonsList = document.createElement("ul");
+      //document.getElementById("prepend-ingredients-here").append(buttonsList);
       var pantryInput = document.createElement("button");
       pantryInput.setAttribute(
         "class",
@@ -144,11 +161,19 @@ $(document).ready(function () {
       $("#pantryText").val("");
     }
   });
+  // function validSubmit () {
+  //  if (userInput.value == "" || userInput.value == null) {
+  //     alert("enter an ingredient");
+  //    return false;
+  //}}
+
   // Created event handler for clear all button that will clear all ingredients buttons
   // from pantry list
   $("#clearAllBtn").on("click", function () {
-    var clearBtn = document.getElementById("pantryListBtn");
-    clearBtn.remove();
+    var clearBtn = document.querySelectorAll(".new-ingredient-button");
+    for (var f = 0; f < clearBtn.length; f++) {
+      clearBtn[f].remove();
+    }
   });
 
   var userIngredients = "";
