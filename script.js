@@ -4,7 +4,6 @@ $(document).ready(function () {
 
   // When a food ingredient button is clicked
   $(document).on("click", ".ingredient-button", function () {
-
     // The button title will be the query food
     var ingredientQuery = $(this).text();
 
@@ -121,15 +120,34 @@ $(document).ready(function () {
     });
   });
 
-
   // Created button that will display into pantry list box when a user submits
   // an ingredient.
   $("#pantrySearchBtn").on("click", function createBtn() {
     var userInput = document.getElementById("pantryText");
+    $("#pantry-search-form").submit(function () {
+      createBtn();
+      return false;
+    });
+    // if (userInput.value != "" || userInput.value != null){
+
+    // var pantryInput = document.createElement("button");
+    //   pantryInput.setAttribute(
+    //   "class",
+    // "button new-ingredient-button is-danger is-light is-rounded"
+    //);
+    //pantryInput.setAttribute("id", "pantryListBtn");
+    //pantryInput.textContent = userInput.value;
+    //document
+    //.getElementById("prepend-ingredients-here")
+    //.appendChild(pantryInput);
+    // $("#pantryText").val("");
+    // }
     if (userInput.value == "" || userInput.value == null) {
-      alert("Please submit an ingredient");
+      //alert("enter an ingredient");
       return false;
     } else {
+      //var buttonsList = document.createElement("ul");
+      //document.getElementById("prepend-ingredients-here").append(buttonsList);
       var pantryInput = document.createElement("button");
       pantryInput.setAttribute(
         "class",
@@ -143,56 +161,68 @@ $(document).ready(function () {
       $("#pantryText").val("");
     }
   });
+  // function validSubmit () {
+  //  if (userInput.value == "" || userInput.value == null) {
+  //     alert("enter an ingredient");
+  //    return false;
+  //}}
+
   // Created event handler for clear all button that will clear all ingredients buttons
   // from pantry list
   $("#clearAllBtn").on("click", function () {
-    var clearBtn = document.getElementById("pantryListBtn");
-    clearBtn.remove();
+    var clearBtn = document.querySelectorAll(".new-ingredient-button");
+    for (var f = 0; f < clearBtn.length; f++) {
+      clearBtn[f].remove();
+    }
   });
 
   var userIngredients = "";
   // Set Click to Search button
   $("#search").on("click", function () {
-
     //Remove all content before rendering
     $(".is-3").remove();
 
     userIngredients = "";
     var userButtons = $(".new-ingredient-button");
     for (i = 0; i < userButtons.length; i++) {
-      var button = userButtons[i]
+      var button = userButtons[i];
       var str = button.innerHTML;
 
-      userIngredients += str
+      userIngredients += str;
       if (i < userButtons.length - 1) {
-        userIngredients += ","
+        userIngredients += ",";
       }
     }
     var pageRandom = Math.floor(Math.random() * 10) + 1;
     var pageNumber = "&p=" + pageRandom;
 
     var settings = {
-      "url": "https://recipe-puppy.p.rapidapi.com/?i=" + userIngredients + pageNumber,
-      "method": "GET",
-      "headers": {
+      url:
+        "https://recipe-puppy.p.rapidapi.com/?i=" +
+        userIngredients +
+        pageNumber,
+      method: "GET",
+      headers: {
         "x-rapidapi-host": "recipe-puppy.p.rapidapi.com",
-        "x-rapidapi-key": "d8b37011d5mshfdc852418e9e300p167785jsn0d94302f0b12"
-      }
-    }
+        "x-rapidapi-key": "d8b37011d5mshfdc852418e9e300p167785jsn0d94302f0b12",
+      },
+    };
 
     // AJAX Recipe Puppy
     $.ajax(settings).then(function (response) {
       var recipePuppyResponse = JSON.parse(response);
-      console.log(recipePuppyResponse)
+      console.log(recipePuppyResponse);
 
-      // List all ingredients 
+      // List all ingredients
       for (i = 0; i < 4; i++) {
-
         // Get title and remove carriage returns
-        var recipeTitle = recipePuppyResponse.results[i].title.replace(/[\n\r]/g, '');
+        var recipeTitle = recipePuppyResponse.results[i].title.replace(
+          /[\n\r]/g,
+          ""
+        );
         var recipeImage = recipePuppyResponse.results[i].thumbnail;
         if (recipePuppyResponse.results[i].thumbnail === "") {
-          recipeImage = "./docs/loading-image.png"
+          recipeImage = "./docs/loading-image.png";
         }
         var recipeLink = recipePuppyResponse.results[i].href;
 
@@ -200,7 +230,6 @@ $(document).ready(function () {
       }
 
       function renderrecipe() {
-
         //Create Column div for Card
         var recipeCardColumn = $("<div>");
         recipeCardColumn.addClass("column is-3");
@@ -225,10 +254,13 @@ $(document).ready(function () {
         var recipeCardTitle = $("<div>");
         recipeCardTitle.addClass("card-content");
         recipeCardTitle.attr("data-name", recipeTitle);
-        recipeCardTitle.attr("data-ingredients", recipePuppyResponse.results[i].ingredients);
+        recipeCardTitle.attr(
+          "data-ingredients",
+          recipePuppyResponse.results[i].ingredients
+        );
         recipeCardTitle.text(recipeTitle);
         //Append child class into parent and into HTML
-        recipeCard.append(recipeCardImage, recipeCardTitle)
+        recipeCard.append(recipeCardImage, recipeCardTitle);
         recipeCardAnchor.append(recipeCard);
         recipeCardColumn.append(recipeCardAnchor);
         $("#append-three-cards-here-1").append(recipeCardColumn);
@@ -243,7 +275,7 @@ $(document).ready(function () {
       var ingredientList = $(this).children("div.card-content");
       console.log(ingredientList);
       ingredientList = ingredientList.data("ingredients");
-      var ingredientListArray = ingredientList.split(', ');
+      var ingredientListArray = ingredientList.split(", ");
 
       for (var i = 0; i < ingredientListArray.length; i++) {
         var ingredientName = ingredientListArray[i];
@@ -256,7 +288,6 @@ $(document).ready(function () {
         } else {
           newButtonEl.addClass("is-danger");
         }
-
 
         ingredientName = capitalizeFirstLetter(ingredientName);
         newButtonEl.text(ingredientName);
