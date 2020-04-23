@@ -1,13 +1,26 @@
 # Project1  
-Recipe Master: find recipes and nutrition information for ingredients you have at home
-
 User Story  
-As a user, I want to make meals with the food I have at home, so that I can save money, reduce waste, and eat healthy.   
+As a user, I want to make meals with the food I have at home, so that I can save  money, reduce waste, and eat healthy.   
 
+Description: Recipe Master allows a user to enter ingredients they have at home into a "Pantry List".  
+Using these ingredients, the user will  search for 4  recipe's at a time from Recipe Puppy API that  
+will be displayed in Bulma cards. Clicking on a recipe will both take you to the recipe URL and display  
+the ingredients of the recipe. Ingredients that the user has on the pantry list will  be highlighted  
+green, while ingredients the user doesn't have will be highlighted red. Clicking on any ingredient will  
+bring up the nutrition info provided by the USDA Food Data API.  
+
+Deployed URL: https://sdemkovich.github.io/Recipe-Master/
+
+Created by: Chris Bragg, Sveta Demkovich, Daniel Villarroel  
+
+![Demo-Gif](https://media.giphy.com/media/jTkhRYlE4NuXmkAegg/giphy.gif)  
 
 ## Latest Commit  
+-Modified demo gif link  
 
 ## Previous commits  
+-Modified ReadMe  
+-Added PPT presentation  
 -Modified front end for recipe card and ingredient sections  
 -Additional pantry search error handling  
 -Added recipe card functionality  
@@ -28,8 +41,5 @@ As a user, I want to make meals with the food I have at home, so that I can save
 -Created event handler on recipe buttons  
 -Created AJAX call to search food title of recipe button  
 -Created functions to handle AJAX response and update html tags with nutrient info
-
-## Daniel's latest commits
-
 -Modified shape and color of buttons created into pantry list
 -Added logic to prevent from submiting an empty string into pantry search
