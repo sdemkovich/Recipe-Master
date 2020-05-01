@@ -18,7 +18,7 @@ Created by: Chris Bragg, Sveta Demkovich, Daniel Villarroel
 - U.S. Department of Agriculture FoodData Central  
 
 # Links  
-[Presentation](./recipePPT.pptx)/  
+[Presentation](./recipePPT.pptx) /  
 [Project proposal](https://drive.google.com/open?id=15hsFwbAiv-9XK9aorcIa0fySlPHRG8v8wnyfxlYu3Bc)  
 
 
