@@ -18,8 +18,8 @@ Created by: Chris Bragg, Sveta Demkovich, Daniel Villarroel
 - U.S. Department of Agriculture FoodData Central  
 
 # Links  
-[Presentation](https://docs.google.com/presentation/d/1RI9Q5qyopGl8zTjUtrl1391OFt4SVId9d8s1IK4xoFM/edit?usp=sharing)
-[Project proposal](https://drive.google.com/open?id=15hsFwbAiv-9XK9aorcIa0fySlPHRG8v8wnyfxlYu3Bc)  
+* [Presentation](https://docs.google.com/presentation/d/1RI9Q5qyopGl8zTjUtrl1391OFt4SVId9d8s1IK4xoFM/edit?usp=sharing)
+* [Project proposal](https://drive.google.com/open?id=15hsFwbAiv-9XK9aorcIa0fySlPHRG8v8wnyfxlYu3Bc)  
 
 
 ## Latest Commit  
