@@ -1,4 +1,4 @@
-# [Recipe Master!] (https://sdemkovich.github.io/Recipe-Master/)
+# [Recipe Master!](https://sdemkovich.github.io/Recipe-Master/)
 
 ## Project Description
 Recipe Master allows a user to enter ingredients they have at home into a "Pantry List". Using these ingredients, the user will search for 4 recipe's at a time from Recipe Puppy API that will be displayed in Bulma cards. Clicking on a recipe will both take you to the recipe URL and display the ingredients of the recipe. Ingredients that the user has on the pantry list will be highlighted green, while ingredients the user doesn't have will be highlighted red. Clicking on any ingredient will bring up the nutrition info provided by the USDA Food Data API.
@@ -18,7 +18,7 @@ Created by: Chris Bragg, Sveta Demkovich, Daniel Villarroel
 - U.S. Department of Agriculture FoodData Central  
 
 # Links  
-[Presentation](./recipePPT.pptx)  
+[Presentation](./recipePPT.pptx)/  
 [Project proposal](https://drive.google.com/open?id=15hsFwbAiv-9XK9aorcIa0fySlPHRG8v8wnyfxlYu3Bc)  
 
 
